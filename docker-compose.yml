@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  evochaindnode0:
+    container_name: evochaindnode0
+    image: "evochain/node"
+    ports:
+      - "26656-26657:26656-26657"
+    environment:
+      - ID=0
+      - LOG=${LOG:-evochaind.log}
+    volumes:
+      - ./build:/evochaind:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.2
+
+  evochaindnode1:
+    container_name: evochaindnode1
+    image: "evochain/node"
+    ports:
+      - "26659-26660:26656-26657"
+    environment:
+      - ID=1
+      - LOG=${LOG:-evochaind.log}
+    volumes:
+      - ./build:/evochaind:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.3
+
+  evochaindnode2:
+    container_name: evochaindnode2
+    image: "evochain/node"
+    environment:
+      - ID=2
+      - LOG=${LOG:-evochaind.log}
+    ports:
+      - "26661-26662:26656-26657"
+    volumes:
+      - ./build:/evochaind:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.4
+
+  evochaindnode3:
+    container_name: evochaindnode3
+    image: "evochain/node"
+    environment:
+      - ID=3
+      - LOG=${LOG:-evochaind.log}
+    ports:
+      - "26663-26664:26656-26657"
+    volumes:
+      - ./build:/evochaind:Z
+    networks:
+      localnet:
+        ipv4_address: 192.168.10.5
+
+networks:
+  localnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 192.168.10.0/16
+
