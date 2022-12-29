@@ -38,7 +38,7 @@ run() {
       --commit-gap-height 3 \
       --trace --home $HOME_SERVER --chain-id $CHAINID \
       --elapsed Round=1,CommitRound=1,Produce=1 \
-      --rest.laddr "tcp://localhost:8545" > evo.log 2>&1 &
+      --rest.laddr "tcp://0.0.0.0:8545" > evo.log 2>&1 &
 
 # --iavl-commit-interval-height \
 # --iavl-enable-async-commit \
@@ -76,7 +76,6 @@ evochaincli config trust-node true
 evochaincli config keyring-backend test
 
 # if $KEY exists it should be deleted
-#
 
 evochaincli keys add --recover account1 -m "cattle dance unaware certain design axis wedding worry another frost treat park" -y
 
