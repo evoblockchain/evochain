@@ -25,7 +25,7 @@ func AddrCommands() *cobra.Command {
 		Short: "opreate all kind of address in the " + system.ChainName + " network",
 		Long: ` Address is a identification for join in the ` + system.ChainName + ` network.
 
-	The address in ` + system.ChainName + ` network begins with "ex" or "0x"`,
+	The address in ` + system.ChainName + ` network begins with "evo" or "0x"`,
 	}
 	cmd.AddCommand(convertCommand())
 	return cmd

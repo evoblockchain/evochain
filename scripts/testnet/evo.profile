@@ -1,5 +1,6 @@
 BIN_NAME=evochaind
-EVOHAIN_TOP=${GOPATH}/src/github.com/evoblockchain/evochain
+#EVOHAIN_TOP=${GOPATH}/src/github.com/evoblockchain/evochain
+EVOHAIN_TOP=${HOME}/evochain/
 EVOHAIN_BIN=${EVOHAIN_TOP}/build
 EVOHAIN_BIN=${GOPATH}/bin
 EVOHAIN_NET_TOP=`pwd`
