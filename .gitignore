@@ -45,6 +45,8 @@ cmd/evochaind/testnet_evochain.go
 dev/testnet/node_data
 testnet_evochain.go
 tools
+scripts/node_data
+
 
 
 # Testing
