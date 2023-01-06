@@ -1,0 +1,426 @@
+{
+  "genesis_time": "2023-01-04T09:35:12.066086Z",
+  "chain_id": "evochain-11",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "-1",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    }
+  },
+  "app_hash": "",
+  "app_state": {
+    "ammswap": {
+      "params": {
+        "fee_rate": "0.003000000000000000"
+      },
+      "swap_token_pair_records": null
+    },
+    "auth": {
+      "accounts": [
+        {
+          "type": "evoblockchain/EthAccount",
+          "value": {
+            "account_number": 0,
+            "address": "evo1ss60jyagpw8v224006cqdkw22m32ytz54av3h3",
+            "code_hash": "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+            "coins": [
+              {
+                "amount": "500000000.000000000000000000",
+                "denom": "evo"
+              }
+            ],
+            "eth_address": "0x8434f913a80B8EC52AAF7eb006d9Ca56e2a22c54",
+            "public_key": "",
+            "sequence": 0
+          }
+        },
+        {
+          "type": "evoblockchain/EthAccount",
+          "value": {
+            "account_number": 0,
+            "address": "evo16zra6y26jytss520xrffq96p4fp4mnantcvyp2",
+            "code_hash": "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+            "coins": [
+              {
+                "amount": "500000000.000000000000000000",
+                "denom": "evo"
+              }
+            ],
+            "eth_address": "0xd087Dd115a911708514F30d2901741Aa435dCfB3",
+            "public_key": "",
+            "sequence": 0
+          }
+        },
+        {
+          "type": "evoblockchain/EthAccount",
+          "value": {
+            "account_number": 0,
+            "address": "evo174rwwnmw7y3ksw3xgxpwsn8a5ynvvqh9cmwyam",
+            "code_hash": "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+            "coins": [
+              {
+                "amount": "500000000.000000000000000000",
+                "denom": "evo"
+              }
+            ],
+            "eth_address": "0xf546e74f6Ef123683a264182E84CFDA126c602e5",
+            "public_key": "",
+            "sequence": 0
+          }
+        },
+        {
+          "type": "evoblockchain/EthAccount",
+          "value": {
+            "account_number": 0,
+            "address": "evo1zymdc96u9dwpsau88r7ld6eqnaa9cj76rwvxy4",
+            "code_hash": "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+            "coins": [
+              {
+                "amount": "500000000.000000000000000000",
+                "denom": "evo"
+              }
+            ],
+            "eth_address": "0x1136dc175C2B5C18778738fdF6EB209f7A5C4Bda",
+            "public_key": "",
+            "sequence": 0
+          }
+        }
+      ],
+      "params": {
+        "max_memo_characters": "256",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10"
+      }
+    },
+    "bank": {
+      "send_enabled": true
+    },
+    "capability": null,
+    "crisis": {
+      "constant_fee": {
+        "amount": "1000.000000000000000000",
+        "denom": "evo"
+      }
+    },
+    "dex": {
+      "max_token_pair_id": "0",
+      "operators": null,
+      "params": {
+        "delist_max_deposit_period": "86400000000000",
+        "delist_min_deposit": [
+          {
+            "amount": "100.000000000000000000",
+            "denom": "evo"
+          }
+        ],
+        "delist_voting_period": "259200000000000",
+        "list_fee": {
+          "amount": "20000.000000000000000000",
+          "denom": "evo"
+        },
+        "ownership_confirm_window": "86400000000000",
+        "register_operator_fee": {
+          "amount": "0.000000000000000000",
+          "denom": "evo"
+        },
+        "transfer_ownership_fee": {
+          "amount": "10.000000000000000000",
+          "denom": "evo"
+        },
+        "withdraw_period": "259200000000000"
+      },
+      "product_locks": {
+        "Data": {}
+      },
+      "token_pairs": null,
+      "withdraw_infos": null
+    },
+    "distribution": {
+      "delegator_withdraw_infos": [],
+      "fee_pool": {
+        "community_pool": []
+      },
+      "params": {
+        "community_tax": "0.020000000000000000",
+        "distribution_type": 0,
+        "reward_truncate_precision": "0",
+        "withdraw_addr_enabled": true,
+        "withdraw_reward_enabled": true
+      },
+      "previous_proposer": "",
+      "validator_accumulated_commissions": []
+    },
+    "erc20": null,
+    "evidence": {
+      "evidence": [],
+      "params": {
+        "max_evidence_age": "120000000000"
+      }
+    },
+    "evm": {
+      "accounts": [],
+      "chain_config": {
+        "byzantium_block": "0",
+        "constantinople_block": "0",
+        "dao_fork_block": "0",
+        "dao_fork_support": true,
+        "eip150_block": "0",
+        "eip150_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "eip155_block": "0",
+        "eip158_block": "0",
+        "ewasm_block": "-1",
+        "homestead_block": "0",
+        "istanbul_block": "0",
+        "muir_glacier_block": "0",
+        "petersburg_block": "0",
+        "yoloV2_block": "-1"
+      },
+      "contract_blocked_list": [],
+      "contract_deployment_whitelist": [],
+      "params": {
+        "enable_call": true,
+        "enable_contract_blocked_list": true,
+        "enable_contract_deployment_whitelist": false,
+        "enable_create": true,
+        "extra_eips": null,
+        "max_gas_limit_per_tx": "30000000"
+      },
+      "txs_logs": []
+    },
+    "farm": {
+      "current_rewards": [],
+      "historical_rewards": [],
+      "lock_infos": [],
+      "params": {
+        "create_pool_deposit": {
+          "amount": "10.000000000000000000",
+          "denom": "evo"
+        },
+        "create_pool_fee": {
+          "amount": "0.000000000000000000",
+          "denom": "evo"
+        },
+        "quote_symbol": "usdk",
+        "yield_native_token": false
+      },
+      "pools": [],
+      "pools_yield_native_token": null
+    },
+    "feesplit": null,
+    "genutil": {
+      "gentxs": [
+        {
+          "type": "cosmos-sdk/StdTx",
+          "value": {
+            "fee": {
+              "amount": [],
+              "gas": "200000"
+            },
+            "memo": "e042ee9033e68d8bcb44d3d66874e0f221791bc0@172.30.1.42:26656",
+            "msg": [
+              {
+                "type": "evoblockchain/staking/MsgCreateValidator",
+                "value": {
+                  "delegator_address": "evo1ss60jyagpw8v224006cqdkw22m32ytz54av3h3",
+                  "description": {
+                    "details": "",
+                    "identity": "",
+                    "moniker": "evo",
+                    "website": ""
+                  },
+                  "min_self_delegation": {
+                    "amount": "10000.000000000000000000",
+                    "denom": "evo"
+                  },
+                  "pubkey": "evovalconspub1zcjduepqzqwl564t66zrvm2p9ar2hlnhyua3hh5lekf9cy5md04wjp8fhgss0uvg89",
+                  "validator_address": "evovaloper1ss60jyagpw8v224006cqdkw22m32ytz5vg2q2n"
+                }
+              }
+            ],
+            "signatures": [
+              {
+                "pub_key": {
+                  "type": "ethermint/PubKeyEthSecp256k1",
+                  "value": "Ax6BXtwQnFnyIkp7Xed43F6NfJIbgYufVwL23icYDXkH"
+                },
+                "signature": "pfBsgHmDRJZQbukd21Ktq47URwZ6Q9SocEMX34KiPMtkwjlk7Ga4Vd4q10i0Y1o1DfnOBzD3kJxX2TWCht/kCwE="
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "gov": {
+      "deposit_params": {
+        "max_deposit_period": "86400000000000",
+        "min_deposit": [
+          {
+            "amount": "100.000000000000000000",
+            "denom": "evo"
+          }
+        ]
+      },
+      "deposits": null,
+      "proposals": [],
+      "starting_proposal_id": "1",
+      "tally_params": {
+        "quorum": "0.334000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto": "0.334000000000000000",
+        "yes_in_vote_period": "0.667000000000000000"
+      },
+      "votes": null,
+      "voting_params": {
+        "voting_period": "259200000000000"
+      },
+      "waiting_proposals": {}
+    },
+    "ibc": null,
+    "infura": null,
+    "mint": {
+      "minter": {
+        "minted_per_block": [
+          {
+            "amount": "0.000000000000000000",
+            "denom": "evo"
+          }
+        ],
+        "next_block_to_update": "0"
+      },
+      "original_minted_per_block": "1.000000000000000000",
+      "params": {
+        "blocks_per_year": "10519200",
+        "deflation_epoch": "3",
+        "deflation_rate": "0.500000000000000000",
+        "farm_proportion": "0.500000000000000000",
+        "goal_bonded": "0",
+        "inflation_max": "0",
+        "inflation_min": "0",
+        "inflation_rate_change": "0",
+        "mint_denom": "evo"
+      }
+    },
+    "order": {
+      "open_orders": null,
+      "params": {
+        "cancel_order_msg_gas_unit": "30000",
+        "fee_per_block": {
+          "amount": "0.000000000000000000",
+          "denom": "evo"
+        },
+        "max_deals_per_block": "1000",
+        "new_order_msg_gas_unit": "40000",
+        "order_expire_blocks": "259200",
+        "trade_fee_rate": "0.001000000000000000"
+      }
+    },
+    "params": {
+      "params": {
+        "max_block_height": "100000",
+        "max_deposit_period": "86400000000000",
+        "min_deposit": [
+          {
+            "amount": "100.000000000000000000",
+            "denom": "evo"
+          }
+        ],
+        "voting_period": "259200000000000"
+      }
+    },
+    "slashing": {
+      "missed_blocks": {},
+      "params": {
+        "downtime_jail_duration": "600000000000",
+        "min_signed_per_window": "0.050000000000000000",
+        "signed_blocks_window": "10000",
+        "slash_fraction_double_sign": "0.000000000000000000",
+        "slash_fraction_downtime": "0.000000000000000000"
+      },
+      "signing_infos": {}
+    },
+    "staking": {
+      "all_shares": null,
+      "delegators": null,
+      "exported": false,
+      "last_total_power": "0",
+      "last_validator_powers": null,
+      "params": {
+        "bond_denom": "evo",
+        "epoch": 252,
+        "max_bonded_validators": 21,
+        "max_validators_to_add_shares": 30,
+        "min_delegation": "0.000100000000000000",
+        "min_self_delegation": "10000.000000000000000000",
+        "unbonding_time": "1209600000000000"
+      },
+      "proxy_delegator_keys": null,
+      "unbonding_delegations": null,
+      "validators": null
+    },
+    "supply": {
+      "supply": []
+    },
+    "token": {
+      "locked_assets": null,
+      "locked_fees": null,
+      "params": {
+        "burn_fee": {
+          "amount": "10.000000000000000000",
+          "denom": "evo"
+        },
+        "issue_fee": {
+          "amount": "2500.000000000000000000",
+          "denom": "evo"
+        },
+        "mint_fee": {
+          "amount": "10.000000000000000000",
+          "denom": "evo"
+        },
+        "modify_fee": {
+          "amount": "0.000000000000000000",
+          "denom": "evo"
+        },
+        "ownership_confirm_window": "86400000000000",
+        "transfer_ownership_fee": {
+          "amount": "10.000000000000000000",
+          "denom": "evo"
+        }
+      },
+      "tokens": [
+        {
+          "description": "OK Group Global Utility Token",
+          "mintable": true,
+          "original_symbol": "evo",
+          "original_total_supply": "1000000000.000000000000000000",
+          "owner": "evo1ss60jyagpw8v224006cqdkw22m32ytz54av3h3",
+          "symbol": "evo",
+          "type": "0",
+          "whole_name": "EVO"
+        }
+      ]
+    },
+    "transfer": null,
+    "upgrade": {},
+    "wasm": {
+      "params": {
+        "code_upload_access": {
+          "permission": "Everybody"
+        },
+        "instantiate_default_permission": "Everybody",
+        "use_contract_blocked_list": true
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 package server_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -28,9 +29,12 @@ func TestGenerateSaveCoinKey(t *testing.T) {
 	defer cleanup() // clean after itself
 
 	kb, err := crkeys.NewKeyring(t.Name(), "test", dir, nil)
+	fmt.Println("kb = ", kb)
 	require.NoError(t, err)
 
 	addr, mnemonic, err := server.GenerateSaveCoinKey(kb, "keyname", "012345678", false, "")
+	fmt.Println("addr = ", addr)
+	fmt.Println("mnemonic = ", mnemonic)
 	require.NoError(t, err)
 
 	// Test key was actually saved
