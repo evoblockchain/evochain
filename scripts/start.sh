@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KEY="account1"
+KEY="acc1"
 CHAINID="evochain-11"
 MONIKER="evo"
 CURDIR=`dirname $0`
@@ -77,13 +77,13 @@ evochaincli config keyring-backend test
 
 # if $KEY exists it should be deleted
 
-evochaincli keys add --recover account1 -m "cattle dance unaware certain design axis wedding worry another frost treat park" -y
+evochaincli keys add --recover acc1 -m "cattle dance unaware certain design axis wedding worry another frost treat park" -y
 
-evochaincli keys add --recover account2 -m "also voice sock art correct select yellow super grief ozone spot chuckle" -y
+evochaincli keys add --recover acc2 -m "also voice sock art correct select yellow super grief ozone spot chuckle" -y
 
-evochaincli keys add --recover account3 -m "shrug master soup parade audit combine end arena tail print fun company" -y
+evochaincli keys add --recover acc3 -m "shrug master soup parade audit combine end arena tail print fun company" -y
 
-evochaincli keys add --recover account4 -m "need pig cloud recipe hub chicken lizard either raccoon ramp leisure noble" -y
+evochaincli keys add --recover acc4 -m "need pig cloud recipe hub chicken lizard either raccoon ramp leisure noble" -y
 
 # Set moniker and chain-id for Ethermint (Moniker can be anything, chain-id must be an integer)
 evochaind init $MONIKER --chain-id $CHAINID --home $HOME_SERVER
@@ -108,9 +108,9 @@ fi
 
 # Allocate genesis accounts (cosmos formatted addresses)
 evochaind add-genesis-account $(evochaincli keys show $KEY    -a) 500000000evo --home $HOME_SERVER
-evochaind add-genesis-account $(evochaincli keys show account2 -a) 500000000evo --home $HOME_SERVER
-evochaind add-genesis-account $(evochaincli keys show account3 -a) 500000000evo --home $HOME_SERVER
-evochaind add-genesis-account $(evochaincli keys show account4 -a) 500000000evo --home $HOME_SERVER
+evochaind add-genesis-account $(evochaincli keys show acc2 -a) 500000000evo --home $HOME_SERVER
+evochaind add-genesis-account $(evochaincli keys show acc3 -a) 500000000evo --home $HOME_SERVER
+evochaind add-genesis-account $(evochaincli keys show acc4 -a) 500000000evo --home $HOME_SERVER
 
 # Sign genesis transaction
 evochaind gentx --name $KEY --keyring-backend test --home $HOME_SERVER
@@ -124,4 +124,4 @@ evochaincli config keyring-backend test
 
 run
 
-# evochaincli tx send account1 0x1136dc175C2B5C18778738fdF6EB209f7A5C4Bda 1evo --fees 1evo -b block -y
+# evochaincli tx send acc1 0x1136dc175C2B5C18778738fdF6EB209f7A5C4Bda 1evo --fees 1evo -b block -y
