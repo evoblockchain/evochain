@@ -136,10 +136,10 @@ run() {
       sed -i 's/"enable_contract_blocked_list": false/"enable_contract_blocked_list": true/' cache/node${index}/evochaind/config/genesis.json
   fi
 
-  evochaind add-genesis-account 0xbbE4733d85bc2b90682147779DA49caB38C0aA1F 900000000evo --home cache/node${index}/evochaind
-  evochaind add-genesis-account 0x4C12e733e58819A1d3520f1E7aDCc614Ca20De64 900000000evo --home cache/node${index}/evochaind
-  evochaind add-genesis-account 0x83D83497431C2D3FEab296a9fba4e5FaDD2f7eD0 900000000evo --home cache/node${index}/evochaind
-  evochaind add-genesis-account 0x2Bd4AF0C1D0c2930fEE852D07bB9dE87D8C07044 900000000evo --home cache/node${index}/evochaind
+  evochaind add-genesis-account 0xF99a5c14A27F0718eec993B88dBf1c82954946A9 900000000evo --home cache/node${index}/evochaind
+  evochaind add-genesis-account 0x9560D2Bb9709DcCD09d41b000445aD4Bab5b96cf 900000000evo --home cache/node${index}/evochaind
+  evochaind add-genesis-account 0x3BFB74d34CC459c126FcBBa45583c8953D13da07 900000000evo --home cache/node${index}/evochaind
+  evochaind add-genesis-account 0xD53FBb580817fCF688648f0D167B821f9E742D29 900000000evo --home cache/node${index}/evochaind
 
   LOG_LEVEL=main:info,*:error,consensus:error,state:info
 
