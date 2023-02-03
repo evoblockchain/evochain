@@ -153,8 +153,8 @@ run() {
     --p2p.pex=false \
     --p2p.addr_book_strict=false \
     $p2p_seed_opt $p2p_seed_arg \
-    --p2p.laddr tcp://${IP}:${p2pport} \
-    --rpc.laddr tcp://${IP}:${rpcport} \
+    --p2p.laddr tcp://0.0.0.0:${p2pport} \
+    --rpc.laddr tcp://0.0.0.0:${rpcport} \
     --log_level ${LOG_LEVEL} \
     --chain-id ${CHAIN_ID} \
     --upload-delta=false \
@@ -164,7 +164,7 @@ run() {
     --append-pid=true \
     ${LOG_SERVER} \
     --elapsed DeliverTxs=0,Round=1,CommitRound=1,Produce=1 \
-    --rest.laddr tcp://localhost:$restport \
+    --rest.laddr tcp://0.0.0.0:$restport \
     --enable-preruntx=$PRERUN \
     --consensus-role=v$index \
     --active-view-change=true \
