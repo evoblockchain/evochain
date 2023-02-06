@@ -30,7 +30,7 @@ testnet-node-ids
 while getopts "r:isn:b:p:c:Sxwk:" opt; do
   case $opt in
   i)
-    echo "EVOHAIN_INIT"
+    echo "EVOCHAIN_INIT"
     EVOHAIN_INIT=1
     ;;
   r)
@@ -153,8 +153,8 @@ run() {
     --p2p.pex=false \
     --p2p.addr_book_strict=false \
     $p2p_seed_opt $p2p_seed_arg \
-    --p2p.laddr tcp://0.0.0.0:${p2pport} \
-    --rpc.laddr tcp://0.0.0.0:${rpcport} \
+    --p2p.laddr tcp://${IP}:${p2pport} \
+    --rpc.laddr tcp://${IP}:${rpcport} \
     --log_level ${LOG_LEVEL} \
     --chain-id ${CHAIN_ID} \
     --upload-delta=false \
