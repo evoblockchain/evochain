@@ -21,7 +21,6 @@ import (
 	"github.com/evoblockchain/evochain/x/ammswap"
 	dex "github.com/evoblockchain/evochain/x/dex/types"
 	distr "github.com/evoblockchain/evochain/x/distribution"
-	"github.com/evoblockchain/evochain/x/erc20"
 	"github.com/evoblockchain/evochain/x/evidence"
 	"github.com/evoblockchain/evochain/x/evm"
 	"github.com/evoblockchain/evochain/x/farm"
@@ -48,7 +47,7 @@ func GetAllStoreKeys() []string {
 		evm.StoreKey, token.StoreKey, token.KeyLock, dex.StoreKey, dex.TokenPairStoreKey,
 		order.OrderStoreKey, ammswap.StoreKey, farm.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey,
 		ibchost.StoreKey,
-		erc20.StoreKey,
+		//erc20.StoreKey,
 		mpt.StoreKey,
 		wasm.StoreKey,
 		feesplit.StoreKey,

@@ -8,8 +8,6 @@ import (
 	"github.com/evoblockchain/evochain/x/wasm/proxy"
 
 	mintclient "github.com/evoblockchain/evochain/libs/cosmos-sdk/x/mint/client"
-	erc20client "github.com/evoblockchain/evochain/x/erc20/client"
-	erc20rest "github.com/evoblockchain/evochain/x/erc20/client/rest"
 	evmclient "github.com/evoblockchain/evochain/x/evm/client"
 
 	"github.com/evoblockchain/evochain/app/rpc"
@@ -77,7 +75,7 @@ func registerRoutesV1(rs *lcd.RestServer, pathPrefix string) {
 	supplyrest.RegisterRoutes(rs.CliCtx, v1Router)
 	farmrest.RegisterRoutes(rs.CliCtx, v1Router)
 	evmrest.RegisterRoutes(rs.CliCtx, v1Router)
-	erc20rest.RegisterRoutes(rs.CliCtx, v1Router)
+	//erc20rest.RegisterRoutes(rs.CliCtx, v1Router)
 	wasmrest.RegisterRoutes(rs.CliCtx, v1Router)
 	fsrest.RegisterRoutes(rs.CliCtx, v1Router)
 	govrest.RegisterRoutes(rs.CliCtx, v1Router,
@@ -92,7 +90,7 @@ func registerRoutesV1(rs *lcd.RestServer, pathPrefix string) {
 			evmclient.ManageContractDeploymentWhitelistProposalHandler.RESTHandler(rs.CliCtx),
 			evmclient.ManageSysContractAddressProposalHandler.RESTHandler(rs.CliCtx),
 			mintclient.ManageTreasuresProposalHandler.RESTHandler(rs.CliCtx),
-			erc20client.TokenMappingProposalHandler.RESTHandler(rs.CliCtx),
+			//erc20client.TokenMappingProposalHandler.RESTHandler(rs.CliCtx),
 		},
 	)
 

@@ -43,7 +43,7 @@ import (
 	"github.com/evoblockchain/evochain/x/ammswap"
 	dex "github.com/evoblockchain/evochain/x/dex/types"
 	distr "github.com/evoblockchain/evochain/x/distribution"
-	"github.com/evoblockchain/evochain/x/erc20"
+	//"github.com/evoblockchain/evochain/x/erc20"
 	"github.com/evoblockchain/evochain/x/evm"
 	"github.com/evoblockchain/evochain/x/farm"
 	"github.com/evoblockchain/evochain/x/order"
@@ -238,7 +238,7 @@ func createTestInput(
 		evm.StoreKey, token.StoreKey, token.KeyLock, dex.StoreKey, dex.TokenPairStoreKey,
 		order.OrderStoreKey, ammswap.StoreKey, farm.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey,
 		ibchost.StoreKey,
-		erc20.StoreKey,
+		//erc20.StoreKey,
 		mpt.StoreKey,
 		types.StoreKey,
 	)
@@ -307,8 +307,8 @@ func createTestInput(
 		farm.YieldFarmingAccount:    nil,
 		farm.MintFarmingAccount:     {supply.Burner},
 		ibctransfertypes.ModuleName: {authtypes.Minter, authtypes.Burner},
-		erc20.ModuleName:            {authtypes.Minter, authtypes.Burner},
-		types.ModuleName:            nil,
+		//erc20.ModuleName:            {authtypes.Minter, authtypes.Burner},
+		types.ModuleName: nil,
 	}
 	accountKeeper := auth.NewAccountKeeper(legacyAmino, keys[authtypes.StoreKey], keys[mpt.StoreKey], subspace(authtypes.ModuleName), evoblockchain.ProtoAccount)
 	blockedAddrs := make(map[string]bool)

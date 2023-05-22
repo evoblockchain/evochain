@@ -65,8 +65,7 @@ import (
 	"github.com/evoblockchain/evochain/x/dex"
 	dexclient "github.com/evoblockchain/evochain/x/dex/client"
 	distr "github.com/evoblockchain/evochain/x/distribution"
-	"github.com/evoblockchain/evochain/x/erc20"
-	erc20client "github.com/evoblockchain/evochain/x/erc20/client"
+	//"github.com/evoblockchain/evochain/x/erc20"
 	"github.com/evoblockchain/evochain/x/evidence"
 	"github.com/evoblockchain/evochain/x/evm"
 	evmclient "github.com/evoblockchain/evochain/x/evm/client"
@@ -131,9 +130,9 @@ var (
 			evmclient.ManageContractMethodBlockedListProposalHandler,
 			evmclient.ManageSysContractAddressProposalHandler,
 			govclient.ManageTreasuresProposalHandler,
-			erc20client.TokenMappingProposalHandler,
-			erc20client.ProxyContractRedirectHandler,
-			erc20client.ContractTemplateProposalHandler,
+			//erc20client.TokenMappingProposalHandler,
+			//erc20client.ProxyContractRedirectHandler,
+			//erc20client.ContractTemplateProposalHandler,
 			client.UpdateClientProposalHandler,
 			fsclient.FeeSplitSharesProposalHandler,
 			wasmclient.MigrateContractProposalHandler,
@@ -159,7 +158,7 @@ var (
 		capabilityModule.AppModuleBasic{},
 		ibc.AppModuleBasic{},
 		ibctransfer.AppModuleBasic{},
-		erc20.AppModuleBasic{},
+		//erc20.AppModuleBasic{},
 		wasm.AppModuleBasic{},
 		feesplit.AppModuleBasic{},
 	)
@@ -180,9 +179,9 @@ var (
 		farm.YieldFarmingAccount:    nil,
 		farm.MintFarmingAccount:     {supply.Burner},
 		ibctransfertypes.ModuleName: {authtypes.Minter, authtypes.Burner},
-		erc20.ModuleName:            {authtypes.Minter, authtypes.Burner},
-		wasm.ModuleName:             nil,
-		feesplit.ModuleName:         nil,
+		//erc20.ModuleName:            {authtypes.Minter, authtypes.Burner},
+		wasm.ModuleName:     nil,
+		feesplit.ModuleName: nil,
 	}
 
 	GlobalGp = &big.Int{}
@@ -248,7 +247,7 @@ type EVOChainApp struct {
 	IBCKeeper            *ibc.Keeper // IBC Keeper must be a pointer in the app, so we can SetRouter on it correctly
 	marshal              *codec.CodecProxy
 	heightTasks          map[int64]*upgradetypes.HeightTasks
-	Erc20Keeper          erc20.Keeper
+	//Erc20Keeper          erc20.Keeper
 
 	WasmHandler wasmkeeper.HandlerOption
 }
@@ -297,7 +296,7 @@ func NewEVOChainApp(
 		evm.StoreKey, token.StoreKey, token.KeyLock, dex.StoreKey, dex.TokenPairStoreKey,
 		order.OrderStoreKey, ammswap.StoreKey, farm.StoreKey, ibctransfertypes.StoreKey, capabilitytypes.StoreKey,
 		ibchost.StoreKey,
-		erc20.StoreKey,
+		//erc20.StoreKey,
 		mpt.StoreKey,
 		wasm.StoreKey,
 		feesplit.StoreKey,
@@ -335,7 +334,7 @@ func NewEVOChainApp(
 	app.subspaces[farm.ModuleName] = app.ParamsKeeper.Subspace(farm.DefaultParamspace)
 	app.subspaces[ibchost.ModuleName] = app.ParamsKeeper.Subspace(ibchost.ModuleName)
 	app.subspaces[ibctransfertypes.ModuleName] = app.ParamsKeeper.Subspace(ibctransfertypes.ModuleName)
-	app.subspaces[erc20.ModuleName] = app.ParamsKeeper.Subspace(erc20.DefaultParamspace)
+	//app.subspaces[erc20.ModuleName] = app.ParamsKeeper.Subspace(erc20.DefaultParamspace)
 	app.subspaces[wasm.ModuleName] = app.ParamsKeeper.Subspace(wasm.ModuleName)
 	app.subspaces[feesplit.ModuleName] = app.ParamsKeeper.Subspace(feesplit.ModuleName)
 
@@ -422,8 +421,8 @@ func NewEVOChainApp(
 	)
 	ibctransfertypes.SetMarshal(codecProxy)
 
-	app.Erc20Keeper = erc20.NewKeeper(app.marshal.GetCdc(), app.keys[erc20.ModuleName], app.subspaces[erc20.ModuleName],
-		app.AccountKeeper, app.SupplyKeeper, app.BankKeeper, app.EvmKeeper, app.TransferKeeper)
+	//app.Erc20Keeper = erc20.NewKeeper(app.marshal.GetCdc(), app.keys[erc20.ModuleName], app.subspaces[erc20.ModuleName],
+	//	app.AccountKeeper, app.SupplyKeeper, app.BankKeeper, app.EvmKeeper, app.TransferKeeper)
 
 	app.FeeSplitKeeper = feesplit.NewKeeper(
 		app.keys[feesplit.StoreKey], app.marshal.GetCdc(), app.subspaces[feesplit.ModuleName],
@@ -465,7 +464,7 @@ func NewEVOChainApp(
 		AddRoute(evm.RouterKey, evm.NewManageContractDeploymentWhitelistProposalHandler(app.EvmKeeper)).
 		AddRoute(mint.RouterKey, mint.NewManageTreasuresProposalHandler(&app.MintKeeper)).
 		AddRoute(ibcclienttypes.RouterKey, ibcclient.NewClientUpdateProposalHandler(app.IBCKeeper.ClientKeeper)).
-		AddRoute(erc20.RouterKey, erc20.NewProposalHandler(&app.Erc20Keeper)).
+		//AddRoute(erc20.RouterKey, erc20.NewProposalHandler(&app.Erc20Keeper)).
 		AddRoute(feesplit.RouterKey, feesplit.NewProposalHandler(&app.FeeSplitKeeper)).
 		AddRoute(wasm.RouterKey, wasm.NewWasmProposalHandler(&app.wasmKeeper, wasm.NecessaryProposals))
 
@@ -475,7 +474,7 @@ func NewEVOChainApp(
 		AddRoute(farm.RouterKey, &app.FarmKeeper).
 		AddRoute(evm.RouterKey, app.EvmKeeper).
 		AddRoute(mint.RouterKey, &app.MintKeeper).
-		AddRoute(erc20.RouterKey, &app.Erc20Keeper).
+		//AddRoute(erc20.RouterKey, &app.Erc20Keeper).
 		AddRoute(feesplit.RouterKey, &app.FeeSplitKeeper).
 		AddRoute(distr.RouterKey, &app.DistrKeeper)
 
@@ -489,20 +488,20 @@ func NewEVOChainApp(
 	app.FarmKeeper.SetGovKeeper(app.GovKeeper)
 	app.EvmKeeper.SetGovKeeper(app.GovKeeper)
 	app.MintKeeper.SetGovKeeper(app.GovKeeper)
-	app.Erc20Keeper.SetGovKeeper(app.GovKeeper)
+	//app.Erc20Keeper.SetGovKeeper(app.GovKeeper)
 	app.FeeSplitKeeper.SetGovKeeper(app.GovKeeper)
 	app.DistrKeeper.SetGovKeeper(app.GovKeeper)
 
 	// Set EVM hooks
-	app.EvmKeeper.SetHooks(
+	/*app.EvmKeeper.SetHooks(
 		evm.NewMultiEvmHooks(
 			evm.NewLogProcessEvmHook(erc20.NewSendToIbcEventHandler(app.Erc20Keeper),
 				erc20.NewSendNative20ToIbcEventHandler(app.Erc20Keeper)),
 			app.FeeSplitKeeper.Hooks(),
 		),
-	)
+	)*/
 	// Set IBC hooks
-	app.TransferKeeper = *app.TransferKeeper.SetHooks(erc20.NewIBCTransferHooks(app.Erc20Keeper))
+	//app.TransferKeeper = *app.TransferKeeper.SetHooks(erc20.NewIBCTransferHooks(app.Erc20Keeper))
 	transferModule := ibctransfer.NewAppModule(app.TransferKeeper, codecProxy)
 
 	// Create static IBC router, add transfer route, then set and seal it
@@ -543,7 +542,7 @@ func NewEVOChainApp(
 		ibc.NewAppModule(app.IBCKeeper),
 		capabilityModule.NewAppModule(codecProxy, *app.CapabilityKeeper),
 		transferModule,
-		erc20.NewAppModule(app.Erc20Keeper),
+		//erc20.NewAppModule(app.Erc20Keeper),
 		wasm.NewAppModule(*app.marshal, &app.wasmKeeper),
 		feesplit.NewAppModule(app.FeeSplitKeeper),
 	)
@@ -590,7 +589,7 @@ func NewEVOChainApp(
 		ibctransfertypes.ModuleName,
 		ibchost.ModuleName,
 		evm.ModuleName, crisis.ModuleName, genutil.ModuleName, params.ModuleName, evidence.ModuleName,
-		erc20.ModuleName,
+		//erc20.ModuleName,
 		wasm.ModuleName,
 		feesplit.ModuleName,
 	)
